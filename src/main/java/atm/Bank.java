@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.Map;
 
 /**
@@ -42,6 +43,11 @@ public class Bank {
     */
    public Customer findCustomer(int id) {
       return customers.get(id);
+   }
+
+   @PostConstruct
+   public void initCustomerData(){
+      this.customers = dataSource.readCustomers();
    }
 }
 

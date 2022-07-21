@@ -1,6 +1,7 @@
 package atm;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.io.FileNotFoundException;
@@ -10,6 +11,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 @Component
+@Primary
 public class DataSourceFile implements DataSource {
 
     private String filename;
